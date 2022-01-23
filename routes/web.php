@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-// Route::get('/')
+Route::resource('tickets', App\Http\Controllers\TicketController::class)
+->middleware('auth:sanctum');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
