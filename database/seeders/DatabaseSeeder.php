@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Ticket;
+use App\Models\Department;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+        Ticket::factory(10)->create();
+        Department::factory(10)->create();
+
+        User::factory()->create([
+            'name' => 'Gabriel Estacio',
+            'email' => 'gestacio1310@gmail.com',
+            'password' => bcrypt('123456'),
+        ]);
+
+        
     }
 }
