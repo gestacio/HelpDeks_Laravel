@@ -21,7 +21,7 @@ class CreateTicketsTable extends Migration
 
             $table->string('title');
             $table->text('content');
-            $table->string('media');
+            $table->string('media')->nullable();
 
             $table->timestamps();
 

@@ -16,7 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('deparment_id');
+            $table->unsignedBigInteger('department_id');
 
             $table->string('name');
             $table->string('email')->unique();
@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             // $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
 
-            $table->foreign('department_id')->references('id')->on('deparments');
+            $table->foreign('department_id')->references('id')->on('departments');
+            // $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

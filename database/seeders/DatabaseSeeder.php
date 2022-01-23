@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         User::factory(10)->create();
         Ticket::factory(10)->create();
-        Department::factory(10)->create();
+        Department::factory(2)->create();
 
         User::factory()->create([
             'name' => 'Gabriel Estacio',
