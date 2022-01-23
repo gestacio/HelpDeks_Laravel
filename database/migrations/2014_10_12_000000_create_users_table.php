@@ -28,7 +28,6 @@ class CreateUsersTable extends Migration
             $table->timestamps();
 
             $table->foreign('department_id')->references('id')->on('departments');
-            // $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 

@@ -15,7 +15,7 @@ class TicketFactory extends Factory
     {
         return [
             'user_id' => rand(1, 10),
-            'department_id' => rand(1, 10),
+            'department_id' => rand(1, 2),
 
             'title' => $this->faker->sentence,
             'content' => $this->faker->text(200)
