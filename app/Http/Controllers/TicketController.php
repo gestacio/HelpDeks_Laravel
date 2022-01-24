@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,8 +17,9 @@ class TicketController extends Controller
     {
         $user_id = Auth::id();
         $tickets = Ticket::all()->where('user_id', "$user_id");
-        
-        return view('tickets.index', ['tickets' => $tickets]);
+
+        // return view('tickets.index', ['tickets' => $tickets]);
+        return view('tickets.index', compact('tickets'));
     }
 
     /**
@@ -51,7 +51,7 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        return view('tickets.show', compact('ticket'));
     }
 
     /**
@@ -62,7 +62,7 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket)
     {
-        //
+        return view('tickets.edit', compact('ticket'));
     }
 
     /**

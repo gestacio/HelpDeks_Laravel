@@ -18,14 +18,15 @@ class DatabaseSeeder extends Seeder
     {
         
         Department::factory(5)->create();
-        User::factory(10)->create();
-        Ticket::factory(10)->create();
-        
+
         User::factory()->create([
             'name' => 'Gabriel Estacio',
             'email' => 'gestacio1310@gmail.com',
             'password' => bcrypt('123456'),
             'department_id' => 2
         ]);
+        User::factory(5)->create();
+        
+        Ticket::factory(10)->create();
     }
 }
