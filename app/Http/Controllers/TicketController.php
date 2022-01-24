@@ -29,7 +29,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        return view('tickets.create');
     }
 
     /**
@@ -40,7 +40,22 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        // dd($request);
+        // $request->user_id = Auth::id();
+        // $ticket = Ticket::create([$request->all()]);
+
+        $ticket = Ticket::create([
+            'user_id' => Auth::id() 
+        ] + $request->all());
+
+        $ticket->save();
+
+        return redirect()->route('tickets.index')->with('status', 'Ticket creado');
     }
 
     /**
@@ -74,7 +89,15 @@ class TicketController extends Controller
      */
     public function update(Request $request, Ticket $ticket)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        $ticket->update($request->all());
+
+        return redirect()->route('tickets.index')->with('status', 'Ticket actualizado');
     }
 
     /**

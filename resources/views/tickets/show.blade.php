@@ -1,7 +1,7 @@
 @php
-    $button_edit = "bg-cyan-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
-    $button_back = "bg-gray-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
-    $button_delete = "bg-red-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_edit    = "bg-cyan-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_back    = "bg-gray-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_delete  = "bg-red-500 my-auto mx-1r px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
 @endphp
 
 <x-app-layout>
@@ -54,7 +54,7 @@
                                     <a href="{{ route('tickets.edit', $ticket->id) }}" class="{{ $button_edit }}">
                                         Editar
                                     </a>
-                                    
+
                                 </div>
                             </div>
                         </div>

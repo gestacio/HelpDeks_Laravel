@@ -1,7 +1,8 @@
 @php
-    $button_edit = "bg-cyan-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
-    $button_back = "bg-gray-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
-    $button_delete = "bg-red-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_create  = "bg-blue-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_edit    = "bg-cyan-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_back    = "bg-gray-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_delete  = "bg-red-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
 @endphp
 
 <x-app-layout>
@@ -47,8 +48,10 @@
                             <div class="flex justify-between">
                                 <input type="text" class="form-input rounded-md shadow-sm" placeholder="Buscar..."
                                     v-model="q">
-                                <a href="#" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md">
-                                    Create
+                                    {{--  --}}
+                                {{-- <a href="{{ route('tickets.create') }}" class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md"> --}}
+                                <a href="{{ route('tickets.create') }}" class="{{ $button_create }}">
+                                    Crear
                                 </a>
                             </div>
 
@@ -67,12 +70,12 @@
                                 <tbody>
                                     {{-- <h1>{{$tickets->user->name}}</h1> --}}
                                     @foreach ($tickets as $ticket)
-                                        <tr class="border px-4 py-2">
-                                            <td class="px-4 py-2">{{ $ticket->title }}</td>
+                                        <tr class="border odd:bg-white even:bg-slate-200">
+                                            <td class="px-4 py-3">{{ $ticket->title }}</td>
                                             {{-- <td>{{ $ticket->user_id }}</td> --}}
-                                            <td class="px-4 py-2">{{ $ticket->department->name }}</td>
+                                            <td class="px-4 py-3">{{ $ticket->department->name }}</td>
                                             {{-- <td class="px-4 py-2"><a href="">Ver ticket</a></td> --}}
-                                            <td class="px-2 py-2">
+                                            <td class="px-2 py-3">
                                                 <a href="{{ route('tickets.show', $ticket->id)}}" class="{{ $button_edit }}" >
                                                     Ver
                                                 </a>

@@ -5,4 +5,5 @@
 
 {{-- <img src="img/RedWineNoBG2.png" alt=""> --}}
 {{-- <img src="img/RedWineNoBG2.png" alt="" width="100px"> --}}
-<img src="{{ url('img/RedWineNoBG2.png') }}" alt="" width="100px">
+{{-- <img src="{{ url('img/RedWineNoBG2.png') }}" alt="" width="100px"> --}}
+<img src="{{ url('img/RedWineMiniLogo.png') }}" alt="" width="50px">

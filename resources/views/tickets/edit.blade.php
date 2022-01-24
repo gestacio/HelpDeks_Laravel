@@ -1,7 +1,7 @@
 @php
-$button_edit = 'bg-cyan-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
-$button_back = 'bg-gray-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
-$button_delete = 'bg-red-500 m-auto inline-flex items-center px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
+$button_edit    = 'bg-cyan-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
+$button_back    = 'bg-gray-500 my-auto mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
+$button_delete  = 'bg-red-500 my-autor mx-1 px-3 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150';
 @endphp
 
 <x-app-layout>
@@ -36,28 +36,28 @@ $button_delete = 'bg-red-500 m-auto inline-flex items-center px-3 py-2 border bo
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                         <div class="shadow bg-white md:rounded-md p-4">
-                            <form action="{{ route('tickets.update', $ticket->id) }}" method="POST">
+                            
+                            <form action="{{ route('tickets.update', $ticket) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <label class="block font-medium text-sm text-gray-700">Titulo</label>
-                                <input type="text" class="form-input w-full rounded-md shadow-sm" value="{{$ticket->title}}">
-                                
+                                @method('PUT')
+                                <label class="block font-medium text-sm text-gray-700">Titulo *</label>
+                                <input type="text" name="title" class="form-input w-full rounded-md shadow-sm " value="{{$ticket->title}}" required>
+                            
+                                <div class="py-2"></div>
 
-                                <label class="block font-medium text-sm text-gray-700">Contenido</label>
-                                <textarea class="form-input w-full rounded-md shadow-sm" rows="8">{{$ticket->content}}</textarea>
+                                <label class="block font-medium text-sm text-gray-700">Contenido *</label>
+                                <textarea name="content" class="form-input w-full rounded-md shadow-sm" rows="8" required>{{$ticket->content}}</textarea>
 
-                                <button type="submit" class="{{$button_edit}}">Editar</button>
+                                <input type="submit" class="{{$button_edit}}" value="Editar">
                             </form>
 
                             <hr class="my-6">
 
-                            <div class="flex justify-start">
+                            <div class="">
                                 <a href="{{ route('tickets.index') }}" class="{{ $button_back }} ">
                                     Volver
                                 </a>
-                                {{-- <a href="{{ route('tickets.edit', $ticket->id) }}" class="{{ $button_edit }} ">
-                                    Editar
-                                </a> --}}
-                                <a href="{{ route('tickets.edit', $ticket->id) }}" class="{{ $button_delete }}">
+                                <a href="{{ route('tickets.destroy', $ticket->id) }}" class="{{ $button_delete }}">
                                     Eliminar
                                 </a>
                             </div>
