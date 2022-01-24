@@ -1,3 +1,8 @@
+@php
+    $button_edit = "bg-cyan-500 m-auto inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+    $button_delete = "bg-red-500 m-auto inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150";
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -53,7 +58,8 @@
                                     <tr class="border">
                                         <th class="px-4 py-2">Titulo del Ticket</th>
                                         {{-- <th class="px-4 py-2">Usuario</th> --}}
-                                        <th class="px-4 py-2">Enviado al Dpto.</th>
+                                        <th class="px-4 py-2">Departamento</th>
+                                        <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -65,10 +71,15 @@
                                             {{-- <td>{{ $ticket->user_id }}</td> --}}
                                             <td class="px-4 py-2">{{ $ticket->department->name }}</td>
                                             {{-- <td class="px-4 py-2"><a href="">Ver ticket</a></td> --}}
-                                            <td class="px-4 py-2">
-                                                <jet-button type="button"  class="mr-4">
-                                                    press button
-                                                </jet-button>
+                                            <td class="px-2 py-2">
+                                                <a href="{{ route('tickets.show', $ticket->id)}}" class="{{ $button_edit }}" >
+                                                    Ver
+                                                </a>
+                                            </td>
+                                            <td class="px-2 py-2">
+                                                <a href="#" class="{{ $button_delete }}">
+                                                    Eliminar
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

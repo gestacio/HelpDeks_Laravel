@@ -16,16 +16,10 @@ class TicketController extends Controller
      */
     public function index(Request $request)
     {
-        // $tickets = Ticket::all()->where('user_id', 'LIKE', "$request->id");
         $user_id = Auth::id();
         $tickets = Ticket::all()->where('user_id', "$user_id");
-        // $tickets = Ticket::all();
+        
         return view('tickets.index', ['tickets' => $tickets]);
-        // return Inertia::render('Notes/Index', [
-        //     'notes' => Note::latest()
-        //     ->where('excerpt', 'LIKE', "%$request->q%")
-        //     ->get()
-        // ]);
     }
 
     /**
