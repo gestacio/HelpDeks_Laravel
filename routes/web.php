@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::resource('tickets', App\Http\Controllers\TicketController::class)
 ->middleware('auth:sanctum');
 
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('tickets', function () {
+//     return view('tickets');
+// })->name('tickets');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
