@@ -16,10 +16,16 @@ class TicketController extends Controller
     public function index(Request $request)
     {
         $user_id = Auth::id();
-        $tickets = Ticket::all()->where('user_id', "$user_id");
+        $department_id = Auth::user()->department_id;
+        // dd($department_id);
+        $tickets_out = Ticket::all()->where('user_id', "$user_id");
+        $tickets_in = Ticket::all()->where('department_id', "$department_id");
 
-        // return view('tickets.index', ['tickets' => $tickets]);
-        return view('tickets.index', compact('tickets'));
+        return view('tickets.index', [
+            'tickets_out' => $tickets_out,
+            'tickets_in' => $tickets_in,
+        ]);
+        // return view('tickets.index', compact('tickets'));
     }
 
     /**
