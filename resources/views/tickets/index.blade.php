@@ -29,7 +29,11 @@ $button_delete = 'bg-red-500 my-auto mx-1 px-2 py-1 border border-transparent ro
                 @endif
 
                 <div class="py-4 my-4">
+                    @if( isset($status))
+                    <h1 class="text-lg text-gray-900 flex justify-center">{{ $status }}</h1>
+                    @endif
                     <h3 class="text-lg text-gray-900 flex justify-center">
+                        
                         INDEX
                     </h3>
                 </div>

@@ -2300,6 +2300,10 @@ select {
     width: 33.333333%;
   }
 
+  .md\:w-1 {
+    width: 0.25rem;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }

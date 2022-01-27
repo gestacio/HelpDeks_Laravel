@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::resource('tickets', App\Http\Controllers\TicketController::class)
 ->middleware('auth:sanctum');
 
+Route::resource('users', App\Http\Controllers\UserController::class)
+->middleware('auth:sanctum');
+
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('tickets', function () {
 //     return view('tickets');
