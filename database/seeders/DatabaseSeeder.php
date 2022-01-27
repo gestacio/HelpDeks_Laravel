@@ -42,6 +42,41 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123456'),
             'department_id' => 1
         ]);
+
+        User::factory()->create([
+            'name' => 'Yorkis Estacio',
+            'email' => 'yestacio@amanecer.com.ve',
+            'password' => bcrypt('123456'),
+            'department_id' => 2
+        ]);
+
+        User::factory()->create([
+            'name' => 'Lilibeth Moreno',
+            'email' => 'limoreno@amanecer.com.ve',
+            'password' => bcrypt('123456'),
+            'department_id' => 3
+        ]);
+
+        User::factory()->create([
+            'name' => 'Miguel Vasquez',
+            'email' => 'mvasquez@amanecer.com.ve',
+            'password' => bcrypt('123456'),
+            'department_id' => 4
+        ]);
+
+        User::factory()->create([
+            'name' => 'Maria Jimenez',
+            'email' => 'mjimenez@amanecer.com.ve',
+            'password' => bcrypt('123456'),
+            'department_id' => 5
+        ]);
+
+        User::factory()->create([
+            'name' => 'Skarlet Gouveia',
+            'email' => 'sgouveia@amanecer.com.ve',
+            'password' => bcrypt('123456'),
+            'department_id' => 6
+        ]);
         
         User::factory(5)->create();
         
