@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TicketFactory extends Factory
+class PriorityFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,12 +14,7 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => rand(1, 6),
-            'department_id' => rand(1, 6),
-
-            'title' => $this->faker->sentence,
-            'content' => $this->faker->text(600)
-
+            //
         ];
     }
 }

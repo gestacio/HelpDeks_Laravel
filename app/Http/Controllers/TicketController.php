@@ -16,6 +16,7 @@ class TicketController extends Controller
     public function index(Request $request)
     {
         $user_id = Auth::id();
+        // dd($user_id);
         $department_id = Auth::user()->department_id;
         // dd($department_id);
         $tickets_out = Ticket::all()->where('user_id', "$user_id");

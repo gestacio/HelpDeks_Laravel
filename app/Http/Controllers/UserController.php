@@ -15,7 +15,20 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        // $user_id = Auth::id();
+        // dd($user_id);
+        // $department_id = Auth::user()->department_id;
+        // dd($department_id);
+        // $tickets_out = Ticket::all()->where('user_id', "$user_id");
+        // $tickets_in = Ticket::all()->where('department_id', "$department_id");
+        $users = User::all();
+        $departments = Department::all();
+
+        return view('users.index', [
+            'users' => $users,
+            'departments' => $departments
+        ]);
+        // return view('tickets.index', compact('tickets'));
     }
 
     /**
@@ -48,11 +61,16 @@ class UserController extends Controller
             'department_id' => 'required',
         ]);
 
-        $user = User::create($request->all());
+        // $user = User::create($request->all());
+        $user = User::create([
+            'password' => bcrypt($request->password)
+        ] + $request->all());
 
         $user->save();
+        // $departments = Department::all();
 
-        return redirect()->route('tickets.index')->with('status', 'Usuario creado');
+        // return redirect()->route('users.index')->with('status', 'Usuario creado correctamente');
+        return redirect('users')->with('status', 'Usuario creado correctamente');
     }
 
     /**
@@ -95,8 +113,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return back()->with('status', 'Usuario eliminado correctamente');
     }
 }
