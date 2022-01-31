@@ -21,6 +21,7 @@ class TicketController extends Controller
         // dd($department_id);
         $tickets_out = Ticket::all()->where('user_id', "$user_id");
         $tickets_in = Ticket::all()->where('department_id', "$department_id");
+        // dd($tickets_in);
 
         return view('tickets.index', [
             'tickets_out' => $tickets_out,
@@ -57,7 +58,8 @@ class TicketController extends Controller
         // $ticket = Ticket::create([$request->all()]);
 
         $ticket = Ticket::create([
-            'user_id' => Auth::id() 
+            'user_id' => Auth::id(),
+            'priority_id' => 1
         ] + $request->all());
 
         $ticket->save();

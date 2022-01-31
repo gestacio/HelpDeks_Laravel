@@ -69,17 +69,17 @@ $button_delete = 'bg-red-500 my-auto mx-1 px-2 py-1 border border-transparent ro
                                     <thead>
                                         <tr class="border">
                                             <th class="px-2 py-2">Titulo</th>
-                                            <th class="px-2 py-2">Usuario</th>
                                             <th class="px-2 py-2">Dpto.</th>
+                                            <th class="px-2 py-2">Prioridad</th>
                                             <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($tickets_out as $ticket)
+                                        @foreach ($tickets_in as $ticket)
                                             <tr class="border odd:bg-white even:bg-slate-200 mx-auto">
                                                 <td class="px-2 py-4 text-sm">{{ $ticket->title }}</td>
                                                 <td class="px-2 text-sm">{{ $ticket->department->name }}</td>
-                                                <td class="px-2 text-sm">usuario</td>
+                                                <td class="px-2 text-sm">{{ $ticket->priority->name }}</td>
                                                 <td class="px-2"><a
                                                         href="{{ route('tickets.show', $ticket->id) }}"
                                                         class="{{ $button_see }}">Ver</a></td>

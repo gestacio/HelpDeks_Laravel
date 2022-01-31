@@ -12,8 +12,9 @@ class Ticket extends Model
     protected $fillable = [
         'title',
         'content',
+        'user_id',
         'department_id',
-        'user_id'
+        'priority_id',
     ];
 
     public function user()
@@ -25,5 +26,10 @@ class Ticket extends Model
     {
         // return $this->hasMany(Post::class);
         return $this->belongsTo(Department::class);
+    }
+
+    public function priority()
+    {
+        return $this->belongsTo(Priority::class);
     }
 }
