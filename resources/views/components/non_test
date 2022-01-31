@@ -1,0 +1,35 @@
+{{-- <div> --}}
+<!-- When there is no desire, all things are at peace. - Laozi -->
+{{-- @if ($ticket->priority->name == 'Normal')
+    <tr class="border border-green-500 odd:bg-white even:bg-slate-200 mx-auto">
+        {{-- <td class="px-2 py-4 text-sm">{{ $ticket->title }}</td>
+        <td class="px-2 text-sm">{{ $ticket->department->name }}</td>
+        <td class="px-2 text-sm">{{ $ticket->priority->name }}</td>
+        <td class="px-2"><a
+                href="{{ route('tickets.show', $ticket->id) }}"
+                class="{{ $button_see }}">Ver</a></td> --}}
+{{-- {{ $slot }}
+    </tr>
+    @else
+    <tr class="border odd:bg-white even:bg-slate-200 mx-auto">
+        {{ $slot }}
+    </tr>
+    @endif --}}
+{{-- </div> --}}
+
+
+{{-- @if ($ticket->priority->name == 'Normal')
+    <tr class="border odd:bg-green-100 even:bg-slate-200 mx-auto">
+@elseif ($ticket->priority->name == 'Prioritario')
+    <tr class="border odd:bg-yellow-100 even:bg-slate-200 mx-auto">
+@elseif ($ticket->priority->name == 'Urgente')
+    <tr class="border odd:bg-red-100 even:bg-slate-200 mx-auto">
+@endif --}}
+
+{{-- @if ($ticket->priority->name == 'Normal')
+    <tr class="border bg-green-100  mx-auto">
+@elseif ($ticket->priority->name == 'Prioritario')
+    <tr class="border bg-yellow-100  mx-auto">
+@elseif ($ticket->priority->name == 'Urgente')
+    <tr class="border bg-red-100  mx-auto">
+@endif --}}

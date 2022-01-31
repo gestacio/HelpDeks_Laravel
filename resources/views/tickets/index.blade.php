@@ -76,13 +76,18 @@ $button_delete = 'bg-red-500 my-auto mx-1 px-2 py-1 border border-transparent ro
                                     </thead>
                                     <tbody>
                                         @foreach ($tickets_in as $ticket)
+                                            {{-- @php
+                                                $priority_button_color;
+                                            @endphp --}}
+                                            {{-- @include('components/priority-color') --}}
+                                            {{-- <x-priority-color> --}}
                                             <tr class="border odd:bg-white even:bg-slate-200 mx-auto">
                                                 <td class="px-2 py-4 text-sm">{{ $ticket->title }}</td>
                                                 <td class="px-2 text-sm">{{ $ticket->department->name }}</td>
                                                 <td class="px-2 text-sm">{{ $ticket->priority->name }}</td>
                                                 <td class="px-2"><a
                                                         href="{{ route('tickets.show', $ticket->id) }}"
-                                                        class="{{ $button_see }}">Ver</a></td>
+                                                        class="{{ $button_see }} @include('components/priority-color')">Ver</a></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
